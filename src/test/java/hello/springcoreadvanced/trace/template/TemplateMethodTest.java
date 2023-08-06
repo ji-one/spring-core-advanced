@@ -1,5 +1,8 @@
 package hello.springcoreadvanced.trace.template;
 
+import hello.springcoreadvanced.trace.template.code.AbstractTemplate;
+import hello.springcoreadvanced.trace.template.code.SubClassLogic1;
+import hello.springcoreadvanced.trace.template.code.SubClassLogic2;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -14,9 +17,9 @@ public class TemplateMethodTest {
 
     private void logic1() {
         long startTime = System.currentTimeMillis();
-        // 비지니스 로직 실행
-        log.info("비지니스 로직1 실행");
-        // 비지니스 로직 종료
+        // 비즈니스 로직 실행
+        log.info("비즈니스 로직1 실행");
+        // 비즈니스 로직 종료
         long endTime = System.currentTimeMillis();
         long resultTime = endTime - startTime;
         log.info("resultTime={}", resultTime);
@@ -24,11 +27,23 @@ public class TemplateMethodTest {
 
     private void logic2() {
         long startTime = System.currentTimeMillis();
-        // 비지니스 로직 실행
-        log.info("비지니스 로직1 실행");
-        // 비지니스 로직 종료
+        // 비즈니스 로직 실행
+        log.info("비즈니스 로직1 실행");
+        // 비즈니스 로직 종료
         long endTime = System.currentTimeMillis();
         long resultTime = endTime - startTime;
         log.info("resultTime={}", resultTime);
+    }
+
+    /**
+     * 템플릿 메서드 패턴 적용
+     */
+    @Test
+    void templateMethodV1() {
+        AbstractTemplate template1 = new SubClassLogic1();
+        template1.execute();
+
+        AbstractTemplate template2 = new SubClassLogic2();
+        template2.execute();
     }
 }
