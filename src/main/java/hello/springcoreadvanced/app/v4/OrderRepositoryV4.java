@@ -13,7 +13,7 @@ public class OrderRepositoryV4 {
     private final LogTrace trace;
 
     public void save(String itemId) {
-        AbstractTemplate<Void> template = new AbstractTemplate<Void>(trace) {
+        AbstractTemplate<Void> template = new AbstractTemplate<>(trace) {
             @Override
             protected Void call() {
                 if (itemId.equals("ex")) {
