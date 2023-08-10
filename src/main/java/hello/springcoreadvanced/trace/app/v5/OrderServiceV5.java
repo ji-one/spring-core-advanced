@@ -1,4 +1,4 @@
-package hello.springcoreadvanced.app.v5;
+package hello.springcoreadvanced.trace.app.v5;
 
 import hello.springcoreadvanced.trace.callback.TraceTemplate;
 import hello.springcoreadvanced.trace.logtrace.LogTrace;

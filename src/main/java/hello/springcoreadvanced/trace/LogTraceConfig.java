@@ -1,4 +1,4 @@
-package hello.springcoreadvanced;
+package hello.springcoreadvanced.trace;
 
 import hello.springcoreadvanced.trace.logtrace.LogTrace;
 import hello.springcoreadvanced.trace.logtrace.ThreadLocalLogTrace;

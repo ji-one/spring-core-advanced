@@ -1,4 +1,4 @@
-package hello.springcoreadvanced.app.v3;
+package hello.springcoreadvanced.trace.app.v3;
 
 import hello.springcoreadvanced.trace.TraceStatus;
 import hello.springcoreadvanced.trace.logtrace.LogTrace;

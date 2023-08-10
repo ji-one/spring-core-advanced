@@ -1,26 +1,29 @@
-package hello.springcoreadvanced.app.v5;
+package hello.springcoreadvanced.trace.app.v3;
 
-import hello.springcoreadvanced.trace.callback.TraceTemplate;
+import hello.springcoreadvanced.trace.TraceStatus;
 import hello.springcoreadvanced.trace.logtrace.LogTrace;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class OrderRepositoryV5 {
+@RequiredArgsConstructor
+public class OrderRepositoryV3 {
 
-    private final TraceTemplate template;
-
-    public OrderRepositoryV5(LogTrace trace) {
-        this.template = new TraceTemplate(trace);
-    }
+    private final LogTrace trace;
 
     public void save(String itemId) {
-        template.execute("OrderRepository.save()", () -> {
+        TraceStatus status = null;
+        try {
+            status = trace.begin("OrderRepository.save()");
             if (itemId.equals("ex")) {
                 throw new IllegalArgumentException("예외 발생!");
             }
             sleep(1000);
-            return null;
-        });
+            trace.end(status);
+        } catch (Exception e) {
+            trace.exception(status, e);
+            throw e;
+        }
     }
 
     private void sleep(int millis) {
