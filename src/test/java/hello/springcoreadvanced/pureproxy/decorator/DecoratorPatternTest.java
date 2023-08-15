@@ -3,6 +3,7 @@ package hello.springcoreadvanced.pureproxy.decorator;
 import hello.springcoreadvanced.pureproxy.decorator.code.DecoratorPatternClient;
 import hello.springcoreadvanced.pureproxy.decorator.code.MessageDecorator;
 import hello.springcoreadvanced.pureproxy.decorator.code.RealComponent;
+import hello.springcoreadvanced.pureproxy.decorator.code.TimeDecorator;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -21,6 +22,15 @@ public class DecoratorPatternTest {
         RealComponent realComponent = new RealComponent();
         MessageDecorator messageDecorator = new MessageDecorator(realComponent);
         DecoratorPatternClient client = new DecoratorPatternClient(messageDecorator);
+        client.execute();
+    }
+
+    @Test
+    void decorator2(){
+        RealComponent realComponent = new RealComponent();
+        MessageDecorator messageDecorator = new MessageDecorator(realComponent);
+        TimeDecorator timeDecorator = new TimeDecorator(messageDecorator);
+        DecoratorPatternClient client = new DecoratorPatternClient(timeDecorator);
         client.execute();
     }
 }
