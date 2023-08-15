@@ -2,6 +2,7 @@ package hello.springcoreadvanced.proxy.app.v2;
 
 
 public class OrderServiceV2 {
+
     private final OrderRepositoryV2 orderRepositoryV2;
 
     public OrderServiceV2(OrderRepositoryV2 orderRepositoryV2) {
