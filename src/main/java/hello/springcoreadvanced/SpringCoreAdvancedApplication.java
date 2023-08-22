@@ -1,6 +1,7 @@
 package hello.springcoreadvanced;
 
 import hello.springcoreadvanced.proxy.config.v1_proxy.ConcreteProxyConfig;
+import hello.springcoreadvanced.proxy.config.v2_dynamicproxy.DynamicProxyBasicConfig;
 import hello.springcoreadvanced.trace.logtrace.LogTrace;
 import hello.springcoreadvanced.trace.logtrace.ThreadLocalLogTrace;
 import org.springframework.boot.SpringApplication;
@@ -11,7 +12,8 @@ import org.springframework.context.annotation.Import;
 //@Import(AppV1Config.class)
 //@Import({AppV1Config.class, AppV2Config.class})
 //@Import(InterfaceProxyConfig.class)
-@Import(ConcreteProxyConfig.class)
+//@Import(ConcreteProxyConfig.class)
+@Import(DynamicProxyBasicConfig.class)
 @SpringBootApplication(scanBasePackages = "hello.springcoreadvanced.proxy.app")
 public class SpringCoreAdvancedApplication {
 
